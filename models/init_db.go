@@ -23,5 +23,5 @@ func InitDB(conf *DBConf) (*gorm.DB, error) {
 }
 
 func concatDBArgs(dbConf *DBConf) string {
-	return dbConf.MysqlUser + ":" + dbConf.MysqlPass + "@/" + dbConf.DBName + "?charset=" + dbConf.MysqlCharSet
+	return dbConf.MysqlUser + ":" + dbConf.MysqlPass + "@/" + dbConf.DBName + "?parseTime=true&charset=" + dbConf.MysqlCharSet
 }
