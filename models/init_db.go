@@ -2,7 +2,6 @@ package models
 
 import (
 	"github.com/jinzhu/gorm"
-	"log"
 )
 
 type DBConf struct {
@@ -19,8 +18,9 @@ func InitDB(conf *DBConf) (*gorm.DB, error) {
 	if err != nil {
 		return nil, err
 	}
-	db.AutoMigrate(&Task{})
-	log.Println("migration done.")
+	//
+	//db.AutoMigrate(&Task{})
+	//log.Println("migration done.")
 
 	return db, nil
 }
