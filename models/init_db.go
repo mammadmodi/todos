@@ -14,15 +14,15 @@ type DBConf struct {
 	DBName       string `default:"todos" split_words:"true"`
 }
 
-func InitDB(conf *DBConf) *gorm.DB {
+func InitDB(conf *DBConf) (*gorm.DB, error) {
 	db, err := gorm.Open("mysql", concatDBArgs(conf))
 	if err != nil {
-		panic("failed to connect database")
+		return nil, err
 	}
 	db.AutoMigrate(&Task{})
 	log.Println("migration done.")
 
-	return db
+	return db, nil
 }
 
 func concatDBArgs(dbConf *DBConf) string {

@@ -6,9 +6,13 @@ import (
 )
 
 func main() {
-	app, _ := initCliApp()
+	app, err := initCliApp()
 
-	err := app.Run(os.Args)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
 	}

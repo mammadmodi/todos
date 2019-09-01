@@ -1,7 +1,6 @@
 package cliapp
 
 import (
-	"fmt"
 	"github.com/jinzhu/gorm"
 	"github.com/urfave/cli"
 )
@@ -13,12 +12,8 @@ type AppConf struct {
 
 func InitCliApp(conf *AppConf, db *gorm.DB) *cli.App {
 	app := cli.NewApp()
-	app.Name = "TODO"
-	app.Usage = "manage daily tasks ..."
-	app.Action = func(c *cli.Context) error {
-		fmt.Println("Hello manager!")
-		return nil
-	}
+	app.Name = conf.Name
+	app.Usage = conf.Usage
 
 	var registeredCmds []cli.Command
 

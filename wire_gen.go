@@ -6,7 +6,6 @@
 package main
 
 import (
-	"github.com/jinzhu/gorm"
 	"github.com/urfave/cli"
 	"mods/todos/cliapp"
 	"mods/todos/conf"
@@ -18,13 +17,10 @@ import (
 func initCliApp() (*cli.App, error) {
 	appConf := conf.InitCliAppConf()
 	dbConf := conf.InitDBConf()
-	db := models.InitDB(dbConf)
+	db, err := models.InitDB(dbConf)
+	if err != nil {
+		return nil, err
+	}
 	app := cliapp.InitCliApp(appConf, db)
 	return app, nil
-}
-
-func initDb() (*gorm.DB, error) {
-	dbConf := conf.InitDBConf()
-	db := models.InitDB(dbConf)
-	return db, nil
 }

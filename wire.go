@@ -10,10 +10,8 @@ import (
 	"mods/todos/models"
 )
 
-var SuperSet = wire.NewSet(conf.InitDBConf, conf.InitCliAppConf, models.InitDB, cliapp.InitCliApp)
-
 func initCliApp() (*cli.App, error) {
-	wire.Build(SuperSet)
+	wire.Build(wire.NewSet(conf.InitDBConf, conf.InitCliAppConf, models.InitDB, cliapp.InitCliApp))
 
 	return &cli.App{}, nil
 }
