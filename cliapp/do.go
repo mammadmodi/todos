@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/jinzhu/gorm"
 	"github.com/urfave/cli"
+	"mods/todos/models"
 )
 
 func NewDoCommand(db *gorm.DB) cli.Command {
@@ -13,10 +14,18 @@ func NewDoCommand(db *gorm.DB) cli.Command {
 		Usage:   "doing a task",
 		Action: func(c *cli.Context) error {
 			taskId := c.Args().First()
-			if taskId == "" {
-				fmt.Print("task id cannot be null!\n")
+			var task models.Task
+			db.Where("id = ?", taskId).First(&task)
+			if task.ID != 0 {
+				if task.State != "waiting" {
+					fmt.Print("task can not be done or is done before!\n")
+					return nil
+				}
+				task.State = "done"
+				db.Save(&task)
+				fmt.Printf("task with '%v' added to done list.\n", taskId)
 			} else {
-				fmt.Printf("task with '%v' added to todo list.\n", taskId)
+				fmt.Print("task not found!\n")
 			}
 			return nil
 		},
