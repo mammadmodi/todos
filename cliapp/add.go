@@ -1,4 +1,4 @@
-package commands
+package cliapp
 
 import (
 	"fmt"
@@ -11,9 +11,9 @@ func NewAddCommand(db *gorm.DB) cli.Command {
 		Name:    "add",
 		Aliases: []string{"a"},
 		Usage:   "add a task in todo list",
-		Action:  func(c *cli.Context) error {
+		Action: func(c *cli.Context) error {
 			task := c.Args().First()
-			if task == ""{
+			if task == "" {
 				fmt.Print("task cannot be null!\n")
 			} else {
 				fmt.Printf("task '%v' added to todo list.\n", task)
