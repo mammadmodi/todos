@@ -20,6 +20,7 @@ func InitCliApp(conf *AppConf, db *gorm.DB) *cli.App {
 	registeredCmds = append(registeredCmds, NewAddCommand(db))
 	registeredCmds = append(registeredCmds, NewListCommand(db))
 	registeredCmds = append(registeredCmds, NewDoCommand(db))
+	registeredCmds = append(registeredCmds, NewMigrateCommand(db))
 
 	app.Commands = registeredCmds
 

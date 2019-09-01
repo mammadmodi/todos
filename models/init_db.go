@@ -18,9 +18,6 @@ func InitDB(conf *DBConf) (*gorm.DB, error) {
 	if err != nil {
 		return nil, err
 	}
-	//
-	//db.AutoMigrate(&Task{})
-	//log.Println("migration done.")
 
 	return db, nil
 }

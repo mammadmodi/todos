@@ -7,7 +7,8 @@ import (
 
 type Task struct {
 	gorm.Model
-	Name string `gorm:"not null"`
+	Name  string `gorm:"not null"`
+	State string `gorm:"not null;default:'waiting'"`
 }
 
 func CreateTask(taskName string, db *gorm.DB) uint {
