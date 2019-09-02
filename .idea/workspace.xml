@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c173be77-a657-440a-b12c-e311b1e48655" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliapp/do.go" beforeDir="false" afterPath="$PROJECT_DIR$/cliapp/do.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +88,8 @@
     <MESSAGE value="complete add command." />
     <MESSAGE value="add migrate command." />
     <MESSAGE value="complete list command." />
-    <option name="LAST_COMMIT_MESSAGE" value="complete list command." />
+    <MESSAGE value="complete do command." />
+    <option name="LAST_COMMIT_MESSAGE" value="complete do command." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
